@@ -2,6 +2,7 @@ package com.example;
 
 import au.com.dius.pact.provider.junit.PactRunner;
 import au.com.dius.pact.provider.junit.Provider;
+import au.com.dius.pact.provider.junit.State;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit.target.HttpTarget;
 import au.com.dius.pact.provider.junit.target.Target;
@@ -29,6 +30,12 @@ public class PactVerifyTest {
     public static void startSpring(){
         application = SpringApplication.run(PactProducerApplication.class);
     }
+
+    @State("default")
+    public void toDefaultState() {
+        System.out.println("Now service in default state");
+    }
+
 
     @AfterClass
     public static void kill(){
