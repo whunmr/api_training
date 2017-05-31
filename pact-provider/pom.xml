@@ -36,7 +36,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/au.com.dius/pact-jvm-provider-junit_2.10 -->
         <dependency>
             <groupId>au.com.dius</groupId>
             <artifactId>pact-jvm-provider-junit_2.10</artifactId>
@@ -52,24 +51,27 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <groupId>au.com.dius</groupId>
-                <artifactId>pact-jvm-provider-maven_2.11</artifactId>
-                <version>3.3.8</version>
-                <configuration>
-                    <serviceProviders>
-                        <serviceProvider>
-                            <name>Foo_Provider</name>
-                            <protocol>http</protocol>
-                            <host>localhost</host>
-                            <port>8080</port>
-                            <path>/</path>
-                            <pactFileDirectory>src/main/resources/pact-from-consumer</pactFileDirectory>
-                        </serviceProvider>
-                    </serviceProviders>
-                    <pactBrokerUrl/>
-                </configuration>
-            </plugin>
+                <!-- using following plugin to run mvn pact:verify. or directly using mvn test to run pact tests specified in PactVerifyTest. -->
+                <!--<plugin>-->
+                    <!--<groupId>au.com.dius</groupId>-->
+                    <!--<artifactId>pact-jvm-provider-maven_2.11</artifactId>-->
+                    <!--<version>3.3.8</version>-->
+                    <!--<configuration>-->
+                        <!--<serviceProviders>-->
+                            <!--<serviceProvider>-->
+                                <!--<name>Foo_Provider</name>-->
+                                <!--<protocol>http</protocol>-->
+                                <!--<host>localhost</host>-->
+                                <!--<port>8080</port>-->
+                                <!--<path>/</path>-->
+                                <!--&lt;!&ndash;<pactFileDirectory>src/main/resources/pact-from-consumer</pactFileDirectory>&ndash;&gt;-->
+                                <!--<pactBrokerUrl>http://localhost:8002/</pactBrokerUrl>-->
+                            <!--</serviceProvider>-->
+                        <!--</serviceProviders>-->
+                        <!--<pactBrokerUrl/>-->
+                    <!--</configuration>-->
+                <!--</plugin>-->
+
         </plugins>
     </build>
 
